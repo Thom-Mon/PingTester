@@ -44,13 +44,12 @@ namespace PingTester
         }
 
         /*
-         * Pings anhand der Liste "testHosts" durchführen und im RTB ausgeben bzw. ms extrahieren für Diagramm
-         * Löschen der pingTimeListe für neue Anfrage
+         * Pings are performed by using the given Ip-Address severall time to calculate a average value.
+         * This is done 20-times by default.
+         * At the beginning the list of pingTimes is emptied
          */
         private void buttonAutomatikPingTest_button_Click(object sender, EventArgs e)
         {
-
-           
             pingTimeList.Clear();
 
             for (int i = 0; i < 20; i++)
@@ -70,7 +69,6 @@ namespace PingTester
                 {
                     outputPingTestResult_richtextbox.AppendText("Fehler: TimeOut des Pings");
                 }
-                
             }
             
             makeChart();
