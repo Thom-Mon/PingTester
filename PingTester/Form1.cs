@@ -166,7 +166,13 @@ public Form1()
            
             if (dropdownMaxYValue_combobox.SelectedItem.ToString() != "dynamisch")
             {
+                outputNetInfo_richtextbox.AppendText("-"+dropdownMaxYValue_combobox.SelectedItem.ToString()+"-");
                 chartPingHistory_chart.ChartAreas[0].AxisY.Maximum = Convert.ToInt32(dropdownMaxYValue_combobox.SelectedItem);
+            }
+            else
+            {
+                chartPingHistory_chart.ChartAreas[0].AxisY.Maximum = Double.NaN;
+                chartPingHistory_chart.ChartAreas[0].RecalculateAxesScale();
             }
         }
         /*
