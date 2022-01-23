@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
@@ -15,10 +17,17 @@ namespace PingTester
     public partial class Form1 : Form
     {
         List<int> pingTimeList = new List<int>();
-
-        public Form1()
+             
+   
+public Form1()
         {
             InitializeComponent();
+        }
+        private void startUpLoadSettings(object sender, EventArgs e)
+        {
+            inputAddress_TextBox.Text = Properties.Settings.Default["defaultIp"].ToString();
+            dropdownMaxYValue_combobox.SelectedItem = Properties.Settings.Default["defaultYMax"].ToString();
+            getNetworkInformation();
         }
 
         /*
@@ -50,6 +59,11 @@ namespace PingTester
          */
         private void buttonAutomatikPingTest_button_Click(object sender, EventArgs e)
         {
+            //Settings save to hdd
+            Properties.Settings.Default["defaultIp"] = inputAddress_TextBox.Text;
+            Properties.Settings.Default["defaultYMax"] = dropdownMaxYValue_combobox.SelectedItem.ToString();
+            Properties.Settings.Default.Save();
+
             pingTimeList.Clear();
 
             for (int i = 0; i < 20; i++)
@@ -80,10 +94,11 @@ namespace PingTester
         {
             int WidthOfForm = this.Size.Width;
             int HeightOfForm = this.Size.Height;
-            //PingOutput_Height OnSizeChange
-            outputPingTestResult_richtextbox.Size = new System.Drawing.Size(outputPingTestResult_richtextbox.Size.Width, HeightOfForm - 150);
+            //Output_Heights OnSizeChange
+            outputPingTestResult_richtextbox.Size = new System.Drawing.Size(outputPingTestResult_richtextbox.Size.Width, HeightOfForm - 265);
             //Chart_Size OnSizeChange
-            chartPingHistory_chart.Size = new System.Drawing.Size(WidthOfForm - 300, HeightOfForm - 150);
+            chartPingHistory_chart.Size = new System.Drawing.Size(WidthOfForm - 355, HeightOfForm - 150);
+            
         }
 
         /*
@@ -92,6 +107,40 @@ namespace PingTester
         private void OnDropDownChangeMaxY(object sender, EventArgs e)
         {
             makeChart();
+        }
+
+        private void getNetworkInformation()
+        {
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                //get gateaway addresses
+                GatewayIPAddressInformationCollection addresses = ni.GetIPProperties().GatewayAddresses;
+                if (addresses.Count > 0)
+                {
+                    outputNetInfo_richtextbox.AppendText("Description: " + ni.Description + "\n");
+                    foreach (GatewayIPAddressInformation address in addresses)
+                    {
+                        outputNetInfo_richtextbox.AppendText("Gateway: " + address.Address.ToString() + "\n");
+                    }
+                }
+
+                outputNetInfo_richtextbox.AppendText(ni.Name + " ");
+
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            outputNetInfo_richtextbox.AppendText(ip.Address.ToString() + "\n");
+                        }
+                    }
+
+                    
+                 
+                }
+             
+            }
         }
 
         /*
@@ -130,5 +179,8 @@ namespace PingTester
                 buttonAutomatikPingTest_button_Click(this, new EventArgs());
             }
         }
+
+
+
     }
 }
