@@ -48,7 +48,8 @@
             // labelAddress_Label
             // 
             this.labelAddress_Label.AutoSize = true;
-            this.labelAddress_Label.Location = new System.Drawing.Point(11, 12);
+            this.labelAddress_Label.BackColor = System.Drawing.Color.Transparent;
+            this.labelAddress_Label.Location = new System.Drawing.Point(11, 10);
             this.labelAddress_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAddress_Label.Name = "labelAddress_Label";
             this.labelAddress_Label.Size = new System.Drawing.Size(58, 13);
@@ -58,6 +59,7 @@
             // labelPingResult_label
             // 
             this.labelPingResult_label.AutoSize = true;
+            this.labelPingResult_label.BackColor = System.Drawing.Color.Transparent;
             this.labelPingResult_label.Location = new System.Drawing.Point(12, 182);
             this.labelPingResult_label.Name = "labelPingResult_label";
             this.labelPingResult_label.Size = new System.Drawing.Size(93, 13);
@@ -75,6 +77,8 @@
             // 
             // chartPingHistory_chart
             // 
+            this.chartPingHistory_chart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chartPingHistory_chart.BackColor = System.Drawing.SystemColors.Info;
             this.chartPingHistory_chart.BackSecondaryColor = System.Drawing.Color.Transparent;
             this.chartPingHistory_chart.BorderlineColor = System.Drawing.Color.Black;
@@ -84,21 +88,21 @@
             legend1.Name = "Legend1";
             this.chartPingHistory_chart.Legends.Add(legend1);
             this.chartPingHistory_chart.Location = new System.Drawing.Point(327, 83);
-            this.chartPingHistory_chart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartPingHistory_chart.Margin = new System.Windows.Forms.Padding(2);
             this.chartPingHistory_chart.Name = "chartPingHistory_chart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartPingHistory_chart.Series.Add(series1);
-            this.chartPingHistory_chart.Size = new System.Drawing.Size(341, 205);
+            this.chartPingHistory_chart.Size = new System.Drawing.Size(442, 205);
             this.chartPingHistory_chart.TabIndex = 5;
             this.chartPingHistory_chart.Text = "Pingverlauf";
             // 
             // inputAddress_TextBox
             // 
             this.inputAddress_TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.inputAddress_TextBox.Location = new System.Drawing.Point(11, 27);
-            this.inputAddress_TextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputAddress_TextBox.Location = new System.Drawing.Point(11, 25);
+            this.inputAddress_TextBox.Margin = new System.Windows.Forms.Padding(2);
             this.inputAddress_TextBox.Name = "inputAddress_TextBox";
             this.inputAddress_TextBox.Size = new System.Drawing.Size(248, 26);
             this.inputAddress_TextBox.TabIndex = 0;
@@ -107,25 +111,27 @@
             // 
             // buttonStartPingTest_button
             // 
+            this.buttonStartPingTest_button.BackColor = System.Drawing.Color.Linen;
             this.buttonStartPingTest_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.buttonStartPingTest_button.Location = new System.Drawing.Point(263, 27);
-            this.buttonStartPingTest_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonStartPingTest_button.Location = new System.Drawing.Point(263, 25);
+            this.buttonStartPingTest_button.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStartPingTest_button.Name = "buttonStartPingTest_button";
             this.buttonStartPingTest_button.Size = new System.Drawing.Size(106, 29);
             this.buttonStartPingTest_button.TabIndex = 0;
             this.buttonStartPingTest_button.Text = "Ping";
-            this.buttonStartPingTest_button.UseVisualStyleBackColor = true;
+            this.buttonStartPingTest_button.UseVisualStyleBackColor = false;
             this.buttonStartPingTest_button.Click += new System.EventHandler(this.buttonStartPingTest_button_Click);
             // 
             // buttonAutomatikPingTest_button
             // 
+            this.buttonAutomatikPingTest_button.BackColor = System.Drawing.Color.Linen;
             this.buttonAutomatikPingTest_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.buttonAutomatikPingTest_button.Location = new System.Drawing.Point(374, 28);
+            this.buttonAutomatikPingTest_button.Location = new System.Drawing.Point(374, 26);
             this.buttonAutomatikPingTest_button.Name = "buttonAutomatikPingTest_button";
             this.buttonAutomatikPingTest_button.Size = new System.Drawing.Size(129, 28);
             this.buttonAutomatikPingTest_button.TabIndex = 1;
             this.buttonAutomatikPingTest_button.Text = "Pingverlauf";
-            this.buttonAutomatikPingTest_button.UseVisualStyleBackColor = true;
+            this.buttonAutomatikPingTest_button.UseVisualStyleBackColor = false;
             this.buttonAutomatikPingTest_button.Click += new System.EventHandler(this.buttonAutomatikPingTest_button_Click);
             // 
             // dropdownMaxYValue_combobox
@@ -139,8 +145,8 @@
             "100",
             "200",
             "dynamisch"});
-            this.dropdownMaxYValue_combobox.Location = new System.Drawing.Point(588, 55);
-            this.dropdownMaxYValue_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dropdownMaxYValue_combobox.Location = new System.Drawing.Point(689, 55);
+            this.dropdownMaxYValue_combobox.Margin = new System.Windows.Forms.Padding(2);
             this.dropdownMaxYValue_combobox.Name = "dropdownMaxYValue_combobox";
             this.dropdownMaxYValue_combobox.Size = new System.Drawing.Size(80, 28);
             this.dropdownMaxYValue_combobox.TabIndex = 6;
@@ -151,7 +157,8 @@
             // 
             this.labelMaxY_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMaxY_label.AutoSize = true;
-            this.labelMaxY_label.Location = new System.Drawing.Point(575, 40);
+            this.labelMaxY_label.BackColor = System.Drawing.Color.Transparent;
+            this.labelMaxY_label.Location = new System.Drawing.Point(676, 40);
             this.labelMaxY_label.Name = "labelMaxY_label";
             this.labelMaxY_label.Size = new System.Drawing.Size(93, 13);
             this.labelMaxY_label.TabIndex = 7;
@@ -169,6 +176,7 @@
             // labelNetInfo_label
             // 
             this.labelNetInfo_label.AutoSize = true;
+            this.labelNetInfo_label.BackColor = System.Drawing.Color.Transparent;
             this.labelNetInfo_label.Location = new System.Drawing.Point(12, 64);
             this.labelNetInfo_label.Name = "labelNetInfo_label";
             this.labelNetInfo_label.Size = new System.Drawing.Size(119, 13);
@@ -180,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(679, 304);
+            this.ClientSize = new System.Drawing.Size(780, 302);
             this.Controls.Add(this.labelNetInfo_label);
             this.Controls.Add(this.outputNetInfo_richtextbox);
             this.Controls.Add(this.labelMaxY_label);
@@ -192,8 +200,8 @@
             this.Controls.Add(this.outputPingTestResult_richtextbox);
             this.Controls.Add(this.labelPingResult_label);
             this.Controls.Add(this.labelAddress_Label);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(662, 343);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(659, 332);
             this.Name = "Form1";
             this.Text = "PingTester";
             this.Load += new System.EventHandler(this.startUpLoadSettings);

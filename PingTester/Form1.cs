@@ -28,6 +28,7 @@ public Form1()
             inputAddress_TextBox.Text = Properties.Settings.Default["defaultIp"].ToString();
             dropdownMaxYValue_combobox.SelectedItem = Properties.Settings.Default["defaultYMax"].ToString();
             getNetworkInformation();
+            
         }
 
         /*
@@ -183,10 +184,10 @@ public Form1()
             if(e.KeyCode == Keys.Enter)
             {
                 buttonAutomatikPingTest_button_Click(this, new EventArgs());
+                e.SuppressKeyPress = true; //suppressed the windows sound on enter pressing
             }
         }
 
-
-
+      
     }
 }
