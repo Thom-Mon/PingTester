@@ -29,6 +29,8 @@ public Form1()
             dropdownMaxYValue_combobox.SelectedItem = Properties.Settings.Default["defaultYMax"].ToString();
             getNetworkInformation();
             
+            // Set the size at beginning to minimum, to fit chart
+            this.Size = new System.Drawing.Size(655, 321);
         }
 
         /*
